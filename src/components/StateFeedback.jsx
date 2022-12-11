@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './StateFeedback.module.css';
+import Notification from './Notification';
 
 class Counter extends React.Component {
   static propTypes = {};
@@ -44,7 +45,7 @@ class Counter extends React.Component {
     return (
       <div className={css.counter}>
         <h2 className={css.counter__title}>Please leave feedback</h2>
-        <div>
+        <div className="reviews__button">
           <button
             className={css.button}
             type="button"
@@ -64,19 +65,24 @@ class Counter extends React.Component {
           </button>
         </div>
         <h2 className={css.counter__title}>Statistics</h2>
-        <ul className={css.counter__list}>
-          <li className={css.statistics__item}>Good: {this.state.good}</li>
-          <li className={css.statistics__item}>
-            Neutral: {this.state.neutral}
-          </li>
-          <li className={css.statistics__item}>Bad: {this.state.bad}</li>
-          <li className={css.statistics__item}>
-            Total:{this.countTotalFeedback()}
-          </li>
-          <li className={css.statistics__item}>
-            Positive feedback: {this.countPositiveFeedbackPercentage()} %
-          </li>
-        </ul>
+        {this.countTotalFeedback() !== 0 ? (
+          <ul className={css.counter__list}>
+            <li className={css.statistics__item}>Good: {this.state.good}</li>
+            <li className={css.statistics__item}>
+              Neutral: {this.state.neutral}
+            </li>
+            <li className={css.statistics__item}>Bad: {this.state.bad}</li>
+            <li className={css.statistics__item}>
+              Total:{this.countTotalFeedback()}
+            </li>
+            <li className={css.statistics__item}>
+              Positive feedback: {this.countPositiveFeedbackPercentage()} %
+            </li>
+          </ul>
+        ) : (
+          <Notification message={'There is no feedback'} />
+        )}
+        ;
       </div>
     );
   }
