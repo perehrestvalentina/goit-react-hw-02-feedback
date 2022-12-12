@@ -10,9 +10,9 @@ import Notification from './Notification/Notification';
 
 export class App extends React.Component {
   state = {
-    Good: 0,
-    Neutral: 0,
-    Bad: 0,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
   onLeaveFeedback = option => {
@@ -25,12 +25,12 @@ export class App extends React.Component {
 
   countPositiveFeedbackPercentage = () => {
     const positiveFeedBack = (
-      (this.state.Good / this.countTotalFeedback()) *
+      (this.state.good / this.countTotalFeedback()) *
       100
     ).toFixed(2);
     if (positiveFeedBack > 0) {
       return positiveFeedBack;
-    } else return ' ';
+    } else return '0';
   };
 
   render() {
@@ -48,9 +48,9 @@ export class App extends React.Component {
         <Section title={'Statistics'}>
           {this.countTotalFeedback() !== 0 ? (
             <Statistics
-              good={this.state.Good}
-              neutral={this.state.Neutral}
-              bad={this.state.Bad}
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
