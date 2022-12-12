@@ -1,0 +1,21 @@
+.counter {
+  display: block;
+  margin: 20px;
+}
+.counter__title {
+  color: rgb(6, 6, 32);
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.counter__list {
+  padding: 0;
+}
+
+.statistics__item,
+.message__item {
+  margin: 5px;
+  list-style: none;
+  font-size: 15px;
+  color: rgb(96, 18, 185);
+  font-weight: bold;
+}
