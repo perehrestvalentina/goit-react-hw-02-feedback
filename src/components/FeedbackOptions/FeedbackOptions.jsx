@@ -12,7 +12,6 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
             type="button"
             onClick={() => onLeaveFeedback(option)}
           >
-            {' '}
             {option}
           </button>
         );
